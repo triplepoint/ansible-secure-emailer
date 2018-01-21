@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Jonathan Hanson
+  description: A simple secure emailer using postfix, intended for securely forwarding system notifications.
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+  galaxy_tags:
+    - email
+    - postfix
+    - logging
+dependencies: []
