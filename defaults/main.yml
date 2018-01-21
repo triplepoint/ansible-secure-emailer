@@ -1,0 +1,19 @@
+---
+# secure_emailer_allow_ipv6: False
+
+# The full domain name from which emails will originate
+secure_emailer_fqdn:
+
+# The domain name of the relay server to which emails will be sent
+# We'll default to google's SMTP server.
+secure_emailer_relay_server_name: smtp.gmail.com
+
+# The port on the relay server
+# this default is google's SMTP port.  Other common values are 25, and 465.
+secure_emailer_relay_server_port: 587
+
+# The user account name with which to authenticate with the relay server
+secure_emailer_relay_server_username:
+
+# The user account password with which to authenticate with the relay server
+secure_emailer_relay_server_password:
