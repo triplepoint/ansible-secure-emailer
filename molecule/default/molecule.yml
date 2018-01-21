@@ -17,6 +17,15 @@ platforms:
     command: /sbin/init
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      all:
+        secure_emailer_fqdn: testsite.local
+        secure_emailer_relay_server_name: smtp.gmail.com
+        secure_emailer_relay_server_port: 587
+        secure_emailer_relay_server_username: testuser
+        secure_emailer_relay_server_password: testpassword
+
   config_options:
     ssh_connection:
       pipelining: True
