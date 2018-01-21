@@ -7,9 +7,9 @@
 
 - name: Ensure the postfix config file is set
   lineinfile:
-    path: /etc/postfix/main.cf
-    regexp: "{{ item.match }}"
-    line: "{{ item.line }}"
+      path: /etc/postfix/main.cf
+      regexp: "{{ item.match }}"
+      line: "{{ item.line }}"
   notify: restart postfix
   with_items:
       - { match: '^myhostname =', line: "myhostname = {{ secure_emailer_fqdn }}" }
@@ -23,10 +23,10 @@
 
 - name: Ensure the SASL password is set for the relay mail service
   lineinfile:
-    path: /etc/postfix/sasl/sasl_passwd
-    regexp: '^\[{{ secure_emailer_relay_server_name }}\]:'
-    line: "[{{ secure_emailer_relay_server_name }}]:{{ secure_emailer_relay_server_port }} {{ secure_emailer_relay_server_username }}:{{ secure_emailer_relay_server_password }}"
-    create: yes
+      path: /etc/postfix/sasl/sasl_passwd
+      regexp: '^\[{{ secure_emailer_relay_server_name }}\]:'
+      line: "[{{ secure_emailer_relay_server_name }}]:{{ secure_emailer_relay_server_port }} {{ secure_emailer_relay_server_username }}:{{ secure_emailer_relay_server_password }}"
+      create: yes
   register: _sasl_passwords_changed
   notify: restart postfix
 
