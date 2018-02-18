@@ -1,3 +1,15 @@
 ---
+- name: regenerate database hash
+  command: postmap /etc/postfix/sasl/sasl_passwd
+  notify:
+    - set password db perms
+    - restart postfix
+
+- name: set password db perms
+  file: path="{{ item }}" mode=0600 owner=root group=root
+  with_items:
+    - /etc/postfix/sasl/sasl_passwd
+    - /etc/postfix/sasl/sasl_passwd.db
+
 - name: restart postfix
   service: name=postfix state=restarted
