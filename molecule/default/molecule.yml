@@ -6,16 +6,20 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ubuntu_16_04
+  - name: xenial
     image: triplepoint/ubuntu-systemd-16.04
     privileged: true
     command: /bin/bash -c "exec /sbin/init --log-target=journal 3>&1"
-  - name: ubuntu_18_04
-    image: triplepoint/ubuntu-systemd-18.04
-    privileged: true
-    command: /bin/bash -c "exec /sbin/init --log-target=journal 3>&1"
+#   - name: bionic
+#     image: triplepoint/ubuntu-systemd-18.04
+#     privileged: true
+#     command: /bin/bash -c "exec /sbin/init --log-target=journal 3>&1"
 provisioner:
   name: ansible
+  lint:
+    name: ansible-lint
+    options:
+      x: ANSIBLE0016
   inventory:
     group_vars:
       all:
@@ -25,10 +29,6 @@ provisioner:
         secure_emailer_relay_server_username: testuser
         secure_emailer_relay_server_password: testpassword
 
-  lint:
-    name: ansible-lint
-    options:
-      x: ANSIBLE0016
 scenario:
   name: default
 verifier:
