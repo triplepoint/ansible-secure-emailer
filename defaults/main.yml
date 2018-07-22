@@ -1,5 +1,5 @@
 ---
-# secure_emailer_allow_ipv6: False
+# secure_emailer_allow_ipv6: false
 
 # The full domain name from which emails will originate
 secure_emailer_fqdn:

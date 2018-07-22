@@ -26,8 +26,8 @@
     path: /etc/postfix/sasl/sasl_passwd
     regexp: '^\[{{ secure_emailer_relay_server_name }}\]:'
     line: "[{{ secure_emailer_relay_server_name }}]:{{ secure_emailer_relay_server_port }} {{ secure_emailer_relay_server_username }}:{{ secure_emailer_relay_server_password }}"
-    create: yes
-  no_log: True
+    create: true
+  no_log: true
   notify:
     - regenerate database hash
     - restart postfix
