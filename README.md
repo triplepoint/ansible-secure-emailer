@@ -1,4 +1,4 @@
-# Intro [![Build Status](https://travis-ci.org/triplepoint/ansible-secure-emailer.svg?branch=master)](https://travis-ci.org/triplepoint/ansible-secure-emailer)
+# Intro [![Build Status](https://www.travis-ci.com/triplepoint/ansible-secure-emailer.svg?branch=master)](https://www.travis-ci.com/triplepoint/ansible-secure-emailer)
 Allow simple emailing of systems notifications over a secure and authenticated channel.
 
 ## Requirements
