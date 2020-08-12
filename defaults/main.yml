@@ -12,6 +12,12 @@ secure_emailer_relay_server_name: smtp.gmail.com
 # this default is google's SMTP port.  Other common values are 25, and 465.
 secure_emailer_relay_server_port: 587
 
+# Which version of the internet protocol should we allow?
+# can be one or more of "ipv4", "ipv6", and "all", as a comma spearated list
+# in a string.
+# see http://www.postfix.org/postconf.5.html#inet_protocols
+secure_emailer_inet_protocols: "all"
+
 # The user account name with which to authenticate with the relay server
 secure_emailer_relay_server_username:
 
