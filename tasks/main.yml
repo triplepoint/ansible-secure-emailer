@@ -14,6 +14,7 @@
     line: "{{ item.line }}"
   notify: restart postfix
   with_items:
+    - { match: '^compatibility_level =',        line: "compatibility_level = {{ secure_emailer_compatibility_level }}" }
     - { match: '^myhostname =',                 line: "myhostname = {{ secure_emailer_fqdn }}" }
     - { match: '^inet_protocols =',             line: "inet_protocols = {{ secure_emailer_inet_protocols }}" }
     - { match: '^relayhost =',                  line: "relayhost = [{{ secure_emailer_relay_server_name }}]:{{ secure_emailer_relay_server_port }}" }

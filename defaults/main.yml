@@ -1,5 +1,11 @@
 ---
-# secure_emailer_allow_ipv6: false
+# The "compatibility level" that Postfix should use when
+# processing its configuration files and choosing defaults for
+# unspecified values.  This seems to be their way of handling
+# specification versioning.
+# see http://www.postfix.org/postconf.5.html#compatibility_level
+# see http://www.postfix.org/COMPATIBILITY_README.html
+secure_emailer_compatibility_level: 0
 
 # The full domain name from which emails will originate
 secure_emailer_fqdn:
