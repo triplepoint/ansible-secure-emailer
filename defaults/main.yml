@@ -18,6 +18,11 @@ secure_emailer_relay_server_port: 587
 # see http://www.postfix.org/postconf.5.html#inet_protocols
 secure_emailer_inet_protocols: "all"
 
+# Which version of the internet protocol should we prefer, when contacting
+# an SMTP server?  Can be "ipv4", "ipv6", or "any".
+# see http://www.postfix.org/postconf.5.html#smtp_address_preference
+secure_emailer_smtp_address_preference: "any"
+
 # The user account name with which to authenticate with the relay server
 secure_emailer_relay_server_username:
 
