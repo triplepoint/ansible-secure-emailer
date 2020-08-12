@@ -1,5 +1,5 @@
 ---
-- name: regenerate database hash
+- name: regenerate postfix database hash
   command: postmap /etc/postfix/sasl/sasl_passwd
   notify:
     - set password db perms
