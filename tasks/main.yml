@@ -32,6 +32,7 @@
     line: "[{{ secure_emailer_relay_server_name }}]:{{ secure_emailer_relay_server_port }} \
           {{ secure_emailer_relay_server_username }}:{{ secure_emailer_relay_server_password }}"
     create: true
+    mode: 0644
   no_log: true
   notify:
     - regenerate postfix database hash
