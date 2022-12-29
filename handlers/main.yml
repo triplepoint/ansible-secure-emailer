@@ -1,12 +1,12 @@
 ---
-- name: regenerate postfix database hash
-  command: postmap /etc/postfix/sasl/sasl_passwd
+- name: Regenerate postfix database hash
+  ansible.builtin.command: postmap /etc/postfix/sasl/sasl_passwd
   notify:
-    - set password db perms
-    - restart postfix
+    - Set password db perms
+    - Restart postfix
 
-- name: set password db perms
-  file:
+- name: Set password db perms
+  ansible.builtin.file:
     path: "{{ item }}"
     mode: 0600
     owner: root
@@ -15,7 +15,7 @@
     - /etc/postfix/sasl/sasl_passwd
     - /etc/postfix/sasl/sasl_passwd.db
 
-- name: restart postfix
-  service:
+- name: Restart postfix
+  ansible.builtin.service:
     name: postfix
     state: restarted

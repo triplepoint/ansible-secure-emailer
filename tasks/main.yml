@@ -1,6 +1,6 @@
 ---
 - name: Ensure the necessary packages are installed
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   with_items:
@@ -8,11 +8,11 @@
     - libsasl2-modules
 
 - name: Ensure the postfix config file is set
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/postfix/main.cf
     regexp: "{{ item.match }}"
     line: "{{ item.line }}"
-  notify: restart postfix
+  notify: Restart postfix
   with_items:
     - { match: '^compatibility_level =',        line: "compatibility_level = {{ secure_emailer_compatibility_level }}" }
     - { match: '^myhostname =',                 line: "myhostname = {{ secure_emailer_fqdn }}" }
@@ -26,7 +26,7 @@
     - { match: '^smtp_tls_CAfile =',            line: "smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt" }
 
 - name: Ensure the SASL password is set for the relay mail service
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/postfix/sasl/sasl_passwd
     regexp: '^\[{{ secure_emailer_relay_server_name }}\]:'
     line: "[{{ secure_emailer_relay_server_name }}]:{{ secure_emailer_relay_server_port }} \
@@ -35,5 +35,5 @@
     mode: 0600
   no_log: true
   notify:
-    - regenerate postfix database hash
-    - restart postfix
+    - Regenerate postfix database hash
+    - Restart postfix
